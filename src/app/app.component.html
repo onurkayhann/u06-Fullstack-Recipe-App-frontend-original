@@ -9,6 +9,9 @@
   <a *ngIf="!this.authService.isLoggedIn" class="btn btn-outline-dark" routerLinkActive="active"
     routerLinkActive="active" routerLink="/sign-up">Register</a>
   <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-danger">Logout</button>
+  <!-- <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-dark">My Recipes</button> -->
+  <!-- <button href="/user-list" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-dark">My Recipes</button> -->
+  <a href="/user-list"><button type="button" class="btn btn-dark">My Recipes</button></a>
 </div>
 
 

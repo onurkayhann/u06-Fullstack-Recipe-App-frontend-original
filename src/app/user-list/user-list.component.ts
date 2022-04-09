@@ -2,22 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class HomeComponent implements OnInit {
+export class UserListComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  searchRecipe = "";
-
-  search() {
-    this.router.navigate(['/results', this.searchRecipe]);
   }
 
 }
