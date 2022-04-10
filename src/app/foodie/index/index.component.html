@@ -1,13 +1,12 @@
 <section>
-
   <div class="d-flex justify-content-between">
     <h4>List Foodie</h4>
-    <a routerLink="/person/create" class="btn btn-success">Create New Foodie</a>
+    <a routerLink="/foodie/create" class="btn btn-success">Create New Foodie</a>
   </div>
 
-  <br>
+  <br />
 
-  <table class="table ">
+  <table class="table">
     <tr>
       <th>ID</th>
       <th>Name</th>
@@ -21,8 +20,19 @@
       <td>{{ foodie.description }}</td>
       <td>{{ foodie.cuisine }}</td>
       <td>
-        <a href="#" [routerLink]="['/foodie/', 'edit', foodie.id  ]" class="btn btn-primary">Edit</a>
-        <button type="button" (click)="deleteFoodie(foodie.id)" class="btn btn-danger">Delete</button>
+        <a
+          href="#"
+          [routerLink]="['/foodie/', 'edit', foodie.id]"
+          class="btn btn-primary"
+          >Edit</a
+        >
+        <button
+          type="button"
+          (click)="deleteFoodie(foodie.id)"
+          class="btn btn-danger"
+        >
+          Delete
+        </button>
       </td>
     </tr>
   </table>

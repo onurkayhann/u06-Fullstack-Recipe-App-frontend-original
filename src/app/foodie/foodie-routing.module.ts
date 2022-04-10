@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'foodie', redirectTo: 'foodie/index', pathMatch: 'full'},
   { path: 'foodie/index', component: IndexComponent },
   { path: 'foodie/create', component: CreateComponent },
-  { path: 'foodie/edit/:idfoodie', component: EditComponent }
+  { path: 'foodie/edit/:idFoodie', component: EditComponent }
 ];
 
 @NgModule({
