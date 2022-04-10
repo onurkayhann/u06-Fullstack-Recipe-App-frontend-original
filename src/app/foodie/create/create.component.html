@@ -1,0 +1,59 @@
+<div>
+
+  <div class="d-flex justify-content-between">
+    <h4>Foodie customer</h4>
+    <a href="#" routerLink="/foodie/index" class="btn btn-primaryt">Back</a>
+  </div>
+
+  <hr/>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="title">Name:</label>
+              <input
+                formControlName="name"
+                id="name"
+                type="text"
+                class="form-control">
+              <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['name']errors['required']">*Name is required.</div>
+                  <div *ngIf="f['name']errors['pattern']">*The name must only contain letters.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="description">Description:</label>
+              <input
+                formControlName="description"
+                id="description"
+                type="text"
+                class="form-control">
+              <div *ngIf="f['description'].touched && f['description'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['description']errors['required']">*Description is required.</div>
+                  <div *ngIf="f['description']errors['pattern']">*The description must be a valid email address.</div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="cuisine">Cuisine:</label>
+              <input
+                formControlName="cuisine"
+                id="cuisine"
+                type="text"
+                class="form-control">
+              <div *ngIf="f['cuisine'].touched && f['cuisine'].invalid" class="alert alert-danger">
+                  <div *ngIf="f['cuisine']errors['required']">*Cuisine is required.</div>
+                  <div *ngIf="f['cuisine']errors['pattern']">*The phone must only contain numbers.</div>
+              </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>

@@ -14,6 +14,8 @@ import { ResultsComponent } from './results/results.component';
 import { DetailsComponent } from './details/details.component';
 import { UserListComponent } from './user-list/user-list.component';
 
+import { FoodieModule } from './foodie/foodie.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { UserListComponent } from './user-list/user-list.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    FoodieModule
   ],
   providers: [
     {

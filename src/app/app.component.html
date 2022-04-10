@@ -8,48 +8,22 @@
   </nav>
   <a *ngIf="!this.authService.isLoggedIn" class="btn btn-outline-dark" routerLinkActive="active"
     routerLinkActive="active" routerLink="/sign-up">Register</a>
+    <a *ngIf="this.authService.isLoggedIn" href="/user-list" routerLinkActive="active"><button type="button" class="btn btn-dark">My Recipes</button></a>
   <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-danger">Logout</button>
   <!-- <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-dark">My Recipes</button> -->
   <!-- <button href="/user-list" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-dark">My Recipes</button> -->
-  <a href="/user-list"><button type="button" class="btn btn-dark">My Recipes</button></a>
+  <!-- <a *ngIf="this.authService.isLoggedIn" href="/user-list" routerLinkActive="active"><button type="button" class="btn btn-dark">My Recipes</button></a> -->
+</div>
+
+<div class="container" style="padding:20px;">
+	<h1 style="text-align:center;">
+		<a href="/foodie/index"> Full Stack - Angular 10 & Laravel 8 </a>
+	</h1>
+	<hr>
+  <main>
+  <router-outlet></router-outlet>
+  </main>
 </div>
 
 
 <router-outlet></router-outlet>
-
-
-
-  <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-      <a routerLink="/" class="nav-link">Recipe</a>
-    </li>
-    <li>
-      <a *ngIf="this.authService.isLoggedIn" class="nav-link">User Profile</a>
-    </li>
-  </ul>
-
-  <ul class="navbar-nav my-2 -my-lg-0">
-    <li class="nav-item">
-      <a href="#" class="nav-link">My Recipes</a>
-    </li>
-
-    <li class="nav-item">
-      <a routerLink="/login" class="nav-link" (click)="logout()">Logout</a>
-    </li>
-
-    <ng-container>
-    <li class="nav-item">
-      <a *ngIf="!this.authService.isLoggedIn" class="nav-link" routerLinkActive="active" routerLink="/log-in">Sign
-      in</a>
-    </li>
-    <li class="nav-item">
-      <a *ngIf="!this.authService.isLoggedIn" class="nav-link" routerLinkActive="active"
-    routerLinkActive="active" routerLink="/sign-up">Sign up</a>
-    </li>
-  </ng-container>
-
-  </ul>
-</nav> -->
-
-
