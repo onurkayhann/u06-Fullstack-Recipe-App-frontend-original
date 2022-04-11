@@ -27,7 +27,8 @@ export class ResultsComponent implements OnInit {
       // }).catch(console.error);
       this.RecipeService.getSearchResults(this.searchRecipe).subscribe(
         (data: any) => {
-          this.results = data.results;
+          debugger
+          this.results = data;
           console.log(this.results);
         }
       );

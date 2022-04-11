@@ -30,10 +30,12 @@ export class RecipeService {
   // }
 
   getSearchResults(searchRecipe: string): Observable<any> {
-    let apistring =
-      'https://api.spoonacular.com/recipes/complexSearch?query=' +
-      searchRecipe +
-      '&number=5&apiKey=3a98848802494964b212e9c85cf3d986';
+    // let apistring =
+    //   'https://api.spoonacular.com/recipes/complexSearch?query=' +
+    //   searchRecipe +
+    //   '&number=5&apiKey=3a98848802494964b212e9c85cf3d986';
+
+    let apistring = 'http://localhost:8000/api/foodie?query=' + searchRecipe;
 
     return this.http
       .get<any>(apistring, this.httpOptions)
@@ -73,14 +75,18 @@ export class RecipeService {
 
   public getInstructions(id: any) {
     return new Promise((resolve, reject) => {
-      this.http.get(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=3a98848802494964b212e9c85cf3d986`).subscribe(
-        (res) => {
-          resolve(res);
-        },
-        (err) => {
-          reject(err);
-        }
-      );
+      this.http
+        .get(
+          `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=3a98848802494964b212e9c85cf3d986`
+        )
+        .subscribe(
+          (res) => {
+            resolve(res);
+          },
+          (err) => {
+            reject(err);
+          }
+        );
     });
   }
 }
