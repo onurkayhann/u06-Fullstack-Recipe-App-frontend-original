@@ -11,10 +11,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { HomeComponent } from './home/home.component';
 import { ResultsComponent } from './results/results.component';
-import { DetailsComponent } from './details/details.component';
 import { UserListComponent } from './user-list/user-list.component';
 
 import { FoodieModule } from './foodie/foodie.module';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [

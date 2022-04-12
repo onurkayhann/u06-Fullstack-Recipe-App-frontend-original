@@ -3,4 +3,5 @@ export interface Foodie {
   name: string;
   description?: string;
   cuisine?: string;
+  userId?: number;
 }

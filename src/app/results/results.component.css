@@ -3,12 +3,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
   align-items: center;
   background-image: url('../../assets/recipe-app.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  overflow-y: scroll;
 }
 
 h1 {
@@ -36,4 +34,14 @@ h1 {
   justify-content: center;
   align-items: center;
   padding: 20px;
+}
+
+.layout{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.layout-child{
+  margin: 5px;
 }

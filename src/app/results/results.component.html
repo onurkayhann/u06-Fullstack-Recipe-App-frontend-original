@@ -1,8 +1,31 @@
 <div class="recipe-container">
   <h1>Showing results for "{{ searchRecipe }}"</h1>
-
-  <div (click)="showDetails(recipe.id)" class="recipe-card" *ngFor="let recipe of results">
-    <img [src]="recipe.image" alt="recipe image">
-    <div class="title">{{ recipe.name }}</div>
+  <div class="container layout">
+    <div
+      class="card layout-child text-center"
+      style="width: 18rem"
+      *ngFor="let recipe of resultModel.results"
+    >
+      <img
+        class="card-img-top"
+        alt="Card image cap"
+        [src]="recipe.image"
+        alt="recipe image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe.title }}</h5>
+        <button
+          *ngIf="this.authService.isLoggedIn"
+          class="btn btn-primary"
+          (click)="addToWatchList(recipe)"
+        >
+          Add
+        </button>
+        &nbsp;
+        <button class="btn btn-primary" (click)="showDetails(recipe.id)">
+          Details
+        </button>
+      </div>
+    </div>
   </div>
 </div>

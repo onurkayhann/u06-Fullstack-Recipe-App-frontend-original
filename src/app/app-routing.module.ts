@@ -6,7 +6,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { HomeComponent } from './home/home.component';
 import { ResultsComponent } from './results/results.component';
 import { DetailsComponent } from './details/details.component';
-import { AuthGuard } from "./shared/auth.guard";
+import { AuthGuard } from './shared/auth.guard';
 import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
@@ -14,13 +14,17 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'log-in', component: SigninComponent },
   { path: 'sign-up', component: SignupComponent },
-  { path: 'results/:query', component: ResultsComponent},
+  { path: 'results/:query/:category/:intolerance', component: ResultsComponent },
   { path: 'details/:id', component: DetailsComponent },
-  { path: 'user-profile/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
-  { path: 'user-list', component: UserListComponent, canActivate: [AuthGuard] }
+  {
+    path: 'user-profile/:id',
+    component: UserProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'user-list', component: UserListComponent, canActivate: [AuthGuard] },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

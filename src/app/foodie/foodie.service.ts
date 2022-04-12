@@ -10,7 +10,7 @@ import { Foodie } from './foodie';
   providedIn: 'root',
 })
 export class FoodieService {
-  private apiURL = 'http://localhost:8000/api/foodie/';
+  private apiURL = 'http://localhost:8000/api/foodie';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -34,19 +34,29 @@ export class FoodieService {
 
   find(id: any): Observable<Foodie> {
     return this.httpClient
-      .get<Foodie>(this.apiURL + id)
+      .get<Foodie>(this.apiURL + '/' + id)
       .pipe(catchError(this.errorHandler));
   }
 
   update(id: any, foodie: string): Observable<Foodie> {
     return this.httpClient
-      .put<Foodie>(this.apiURL + id, JSON.stringify(foodie), this.httpOptions)
+      .put<Foodie>(
+        this.apiURL + '/' + id,
+        JSON.stringify(foodie),
+        this.httpOptions
+      )
       .pipe(catchError(this.errorHandler));
   }
 
   delete(id: any) {
     return this.httpClient
-      .delete<Foodie>(this.apiURL + id, this.httpOptions)
+      .delete<Foodie>(this.apiURL + '/' + id, this.httpOptions)
+      .pipe(catchError(this.errorHandler));
+  }
+
+  getByUserId(id: any): Observable<Foodie[]> {
+    return this.httpClient
+      .get<Foodie[]>('http://localhost:8000/api/watchlist/' + id)
       .pipe(catchError(this.errorHandler));
   }
 

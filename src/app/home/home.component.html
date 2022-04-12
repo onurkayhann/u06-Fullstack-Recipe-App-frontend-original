@@ -1,5 +1,29 @@
 <div class="recipe-container">
   <h1 class="recipe-title">RecipeApp</h1>
-  <input [(ngModel)]="searchRecipe" type="text" class="searchbox" placeholder="Search for a recipe...">
+  <input
+    [(ngModel)]="searchRecipe"
+    type="text"
+    class="searchbox"
+    placeholder="Search for a recipe..."
+  />
+  <select
+    style="width: 20%; padding: 7px; margin-top: 20px"
+    name="categoryDropdown"
+    (change)="changeCategory($event)"
+  >
+    <option *ngFor="let optios of categories" [value]="optios.cuisine">
+      {{ optios.cuisine }}
+    </option>
+  </select>
+
+  <select
+    style="width: 20%; padding: 7px; margin-top: 20px"
+    name="intolerancesDropdown"
+    (change)="changeIntolerances($event)"
+  >
+    <option *ngFor="let optios of intolerances" [value]="optios">
+      {{ optios }}
+    </option>
+  </select>
   <button (click)="search()" class="search-button">Search</button>
 </div>

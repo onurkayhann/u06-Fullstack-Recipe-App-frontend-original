@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
+import { RecipeDetail, ResultModel } from './results/result.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,31 +15,26 @@ export class RecipeService {
 
   constructor(private http: HttpClient) {}
 
-  // public getSearchResults(searchRecipe: any) {
-  //   return new Promise((resolve, reject) => {
-  //     let apistring = "https://api.spoonacular.com/recipes/complexSearch?query=" + searchRecipe + "&number=5&apiKey=3a98848802494964b212e9c85cf3d986";
-  //     this.http.get<any>(apistring)
-  //       .subscribe(
-  //         (res) => {
-  //           resolve(res);
-  //         },
-  //         (err) => {
-  //           reject(err);
-  //         }
-  //       );
-  //   });
-  // }
+  getSearchResults(
+    searchRecipe: string,
+    category: string,
+    intolerance: string
+  ): Observable<ResultModel> {
+    let apistring =
+      'https://api.spoonacular.com/recipes/complexSearch?query=' +
+      searchRecipe +
+      '&number=10&apiKey=3a98848802494964b212e9c85cf3d986';
 
-  getSearchResults(searchRecipe: string): Observable<any> {
-    // let apistring =
-    //   'https://api.spoonacular.com/recipes/complexSearch?query=' +
-    //   searchRecipe +
-    //   '&number=5&apiKey=3a98848802494964b212e9c85cf3d986';
+    const withCategory = apistring.concat(
+      category !== '' ? '&cuisine=' + category : ''
+    );
 
-    let apistring = 'http://localhost:8000/api/foodie?query=' + searchRecipe;
+    const withIntolerance = withCategory.concat(
+      intolerance !== '' ? '&intolerance=' + intolerance : ''
+    );
 
     return this.http
-      .get<any>(apistring, this.httpOptions)
+      .get<ResultModel>(withIntolerance, this.httpOptions)
       .pipe(catchError(this.errorHandler));
   }
 
@@ -56,21 +52,11 @@ export class RecipeService {
     return throwError(errorMessage);
   }
 
-  public getRecipeInformation(id: any) {
-    return new Promise((resolve, reject) => {
-      this.http
-        .get(
-          `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=3a98848802494964b212e9c85cf3d986`
-        )
-        .subscribe(
-          (res) => {
-            resolve(res);
-          },
-          (err) => {
-            reject(err);
-          }
-        );
-    });
+  public getRecipeInformation(id: number): Observable<RecipeDetail> {
+    let apiString = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=3a98848802494964b212e9c85cf3d986`;
+    return this.http
+      .get<RecipeDetail>(apiString, this.httpOptions)
+      .pipe(catchError(this.errorHandler));
   }
 
   public getInstructions(id: any) {
