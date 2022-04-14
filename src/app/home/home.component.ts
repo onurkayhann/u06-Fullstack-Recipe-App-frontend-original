@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     { cuisine: 'Vietnamese' },
   ];
 
-  intolerances: string[] = ['gluten', 'dairy'];
+  intolerances: string[] = ['gluten', 'dairy', 'grain'];
 
   selectedCategory: string = this.categories[0].cuisine;
   selectedIntolerance: string = this.intolerances[0];

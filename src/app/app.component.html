@@ -8,6 +8,8 @@
   </nav>
   <a *ngIf="!this.authService.isLoggedIn" class="btn btn-outline-dark" routerLinkActive="active"
     routerLinkActive="active" routerLink="/sign-up">Register</a>
+    <a *ngIf="this.authService.isLoggedIn" href="/home" routerLinkActive="active"><button type="button" class="btn btn-dark">Home</button></a>
+    <a *ngIf="this.authService.isLoggedIn" href="/foodie" routerLinkActive="active"><button type="button" class="btn btn-dark">Foodie</button></a>
     <a *ngIf="this.authService.isLoggedIn" href="/user-list" routerLinkActive="active"><button type="button" class="btn btn-dark">My Recipes</button></a>
   <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-danger">Logout</button>
   <!-- <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-dark">My Recipes</button> -->
