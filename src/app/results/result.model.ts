@@ -9,6 +9,7 @@ export interface RecipeDetail {
   pricePerServing: number;
   extendedIngredients?: ExtendedIngredientsEntity[] | null;
   id: number;
+
   title: string;
   readyInMinutes: number;
   servings: number;

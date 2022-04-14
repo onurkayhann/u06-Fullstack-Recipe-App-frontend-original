@@ -53,9 +53,11 @@ export class ResultsComponent implements OnInit {
   addToWatchList(recipe: RecipeDetail): void {
     this.RecipeService.getRecipeInformation(recipe.id).subscribe(
       (data: RecipeDetail) => {
+        console.log(data);
         this.resultModelToSave = data;
         const foodie: Foodie = {
           id: data.id,
+          recipeId: data.id,
           name: data.title,
           description: data.summary.substring(0, 30),
           cuisine: data.cuisines?.length ? data.cuisines[0] : '',

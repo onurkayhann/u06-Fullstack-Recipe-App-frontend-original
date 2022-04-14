@@ -23,6 +23,9 @@
         <td>{{ foodie.description }}</td>
         <td>{{ foodie.cuisine }}</td>
         <td>
+          <button class="btn btn-primary" (click)="showDetails(foodie.recipeId)">
+            Details
+          </button>
           <a
             href="#"
             [routerLink]="['/foodie/', 'edit', foodie.id]"
